@@ -1,0 +1,8 @@
+allowBuilds:
+  esbuild: true
+minimumReleaseAge: 1440
+shellEmulator: true
+strictDepBuilds: true
+trustPolicy: no-downgrade
+trustPolicyExclude:
+  # - ""
