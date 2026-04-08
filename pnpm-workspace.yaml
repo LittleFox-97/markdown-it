@@ -1,0 +1,6 @@
+minimumReleaseAge: 1440
+shellEmulator: true
+strictDepBuilds: true
+trustPolicy: no-downgrade
+trustPolicyExclude:
+  - "semver@6.3.1" # временно до обновления @rollup/plugin-babel, gh-pages и удаления eslint-config-standard
