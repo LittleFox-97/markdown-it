@@ -1,4 +1,7 @@
 minimumReleaseAge: 1440
+overrides:
+  lodash@<=4.17.23: '>=4.18.0'
+  lodash@>=4.0.0 <=4.17.23: '>=4.18.0'
 shellEmulator: true
 strictDepBuilds: true
 trustPolicy: no-downgrade
