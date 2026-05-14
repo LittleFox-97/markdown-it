@@ -5,3 +5,7 @@ demo/
 apidoc/
 dist/
 *.log
+u/
+plan.todo
+.vscode/
+ROADMAP.md
