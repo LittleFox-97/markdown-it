@@ -22,7 +22,6 @@ on:
 
 jobs:
   test:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -30,19 +29,23 @@ jobs:
         node-version: [ '24' ]
 
     steps:
-    - uses: actions/checkout@v6.0.2
+      - uses: actions/checkout@v6.0.2
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v6.4.0
-      with:
-        node-version: ${{ matrix.node-version }}
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v6.4.0
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install pnpm
+        uses: pnpm/action-setup@v6.0.8
+        with:
+          run_install: true
+          cache: true
+          cache_dependency_path: pnpm-lock.yaml
 
-    - run: npm install
+      - name: Test
+        run: pnpm test
 
-    - name: Test
-      run: npm test
-
-    - name: Upload coverage report to coveralls.io
-      uses: coverallsapp/github-action@v2
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload coverage report to coveralls.io
+        uses: coverallsapp/github-action@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
